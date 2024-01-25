@@ -10,7 +10,7 @@ const Courses = () => {
                 </div>
                 <div className='grid grid-cols-3 gap-16 py-[9%] px-[5%]'>
                     {allCourseCodes.map(course => <>
-                        <div data-aos="zoom-in" className="card w-96 bg-transparent glass shadow-xl image-full">
+                        <div data-aos="fade-down" className="card w-96 bg-transparent glass shadow-xl image-full">
                             <div className="card-body bg-transparent">
                                 <h2 className="text-xl font-bold text-center">{course}</h2>
                                 <h3 className="text-xl font-bold text-center">Software Engineering</h3>
