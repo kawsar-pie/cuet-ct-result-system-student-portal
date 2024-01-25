@@ -17,7 +17,7 @@ const EnrolledSemesters = () => {
                     {allSemesters.map(semseter => <>
                         <div data-aos="fade-up" className="card w-96 bg-transparent glass shadow-xl image-full">
                             <div className="card-body bg-transparent">
-                                <h2 className="text-xl font-bold text-center">Level-{semseter[0]} Term-{semseter[1]}</h2>
+                                <h2 className="text-xl font-bold text-center text-white">Level-{semseter[0]} Term-{semseter[1]}</h2>
                                 <p className='text-warning text-center'>All Course Code here</p>
                                 <div className="card-actions justify-center">
                                     {/* <button to="/courses" className="btn glass bg-success text-white">See Courses</button> */}

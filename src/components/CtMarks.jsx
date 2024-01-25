@@ -3,7 +3,7 @@ import React from 'react';
 const CtMarks = () => {
     return (
         <div className='mt-4'>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-hidden">
                 <table className="table">
                     <thead className='text-md text-white text-center'>
                         <tr>
