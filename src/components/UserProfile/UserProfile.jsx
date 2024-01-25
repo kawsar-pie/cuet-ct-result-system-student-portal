@@ -7,7 +7,7 @@ const PatientProfile = () => {
             <div className="hero min-h-screen" style={{ backgroundImage: `url('/public/images/archi.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="hero-overlay bg-opacity-70">
                 </div>
-                <div className="card w-2/6 mx-auto mt-[5%] opacity-70" >
+                <div className="card w-2/6 mx-auto mt-[5%] " >
                     <div className="card-body glass bg-info bg-transparent border-2 rounded-2xl">
                         <div className='text-center mt-[5%] text-black'>
                             <div className="avatar">
