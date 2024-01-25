@@ -11,9 +11,9 @@ const Courses = () => {
                 <div className='grid grid-cols-3 gap-16 py-[9%] px-[5%]'>
                     {allCourseCodes.map(course => <>
                         <div data-aos="fade-down" className="card w-96 bg-transparent glass shadow-xl image-full">
-                            <div className="card-body bg-transparent">
-                                <h2 className="text-xl font-bold text-center">{course}</h2>
-                                <h3 className="text-xl font-bold text-center">Software Engineering</h3>
+                            <div className="card-body bg-transparent ">
+                                <h2 className="text-xl font-bold text-white text-center">{course}</h2>
+                                <h3 className="text-xl font-bold text-white text-center">Software Engineering</h3>
                                 <div className="">
                                     <div className="text-left">
                                         <ul className='flex flex-row justify-between'>
@@ -32,13 +32,26 @@ const Courses = () => {
                 </div>
             </div>
             {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="my_modal_5" className="modal  modal-bottom sm:modal-middle">
-                <div className="modal-box bg-transparent glass text-white">
+            {/* <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box bg-transparent glass text-white w-11/12 max-w-9xl">
                     <h3 className="font-bold text-lg text-center">CT and Attendence Marks (CSE-423)</h3>
                     <CtMarks></CtMarks>
                     <div className="modal-action">
                         <form method="dialog">
-                            {/* if there is a button in form, it will close the modal */}
+                            
+                            <button className="btn btn-success glass text-white">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog> */}
+            {/* You can open the modal using document.getElementById('ID').showModal() method */}
+            <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>open modal</button>
+            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box bg-transparent glass text-white w-11/12 max-w-5xl">
+                    <h3 className="font-bold text-lg text-center">CT and Attendance Marks (CSE-423)</h3>
+                    <CtMarks></CtMarks>
+                    <div className="modal-action">
+                        <form method="dialog">
                             <button className="btn btn-success glass text-white">Close</button>
                         </form>
                     </div>
