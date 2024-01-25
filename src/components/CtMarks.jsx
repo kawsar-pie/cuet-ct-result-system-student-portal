@@ -22,7 +22,7 @@ const CtMarks = () => {
                             <th>15</th>
                             <th>15</th>
                             <th>50</th>
-                            <th>25</th>
+                            <th><h4 className='flex flex-row items-center gap-1'><span>25</span> <sub className='text-xs'>({Math.ceil(25*100/30)}%)</sub></h4></th>
                         </tr>
                     </tbody>
                 </table>
