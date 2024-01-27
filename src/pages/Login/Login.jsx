@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { setAuthHeader } from "../../Axios/axiosInstance";
 import { postData } from "../../Axios/postData";
 import UserContext from "../../Contexts/UserContext";
 import { loginSchema } from "../../Yup/login.yup";
@@ -23,6 +24,7 @@ const Login = () => {
     const result = await postData(`/auth/student/login`, values);
     if (result.data) {
       setUser(result.data);
+      setAuthHeader(result.data.token);
       navigate("/user-profile");
       setLoading(false);
     } else {

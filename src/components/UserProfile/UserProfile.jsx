@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { MdLocationPin } from "react-icons/md";
 import UserContext from "../../Contexts/UserContext";
 
-const PatientProfile = () => {
+const UserProfile = () => {
   const { user } = useContext(UserContext);
 
   return (
@@ -96,4 +96,4 @@ const PatientProfile = () => {
   );
 };
 
-export default PatientProfile;
+export default UserProfile;
