@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { MdLocationPin } from "react-icons/md";
 import UserContext from "../../Contexts/UserContext";
 
 const PatientProfile = () => {
   const { user } = useContext(UserContext);
-  const { profileImage, name, email, department, batch, session, studentId } =
-    user;
+
   return (
     <div className="">
       <div
@@ -22,15 +21,17 @@ const PatientProfile = () => {
             <div className="text-center mt-[5%] text-black">
               <div className="avatar">
                 <div className="w-24 rounded-full ring-4 ring-success ring-offset ring-offset-2">
-                  <img src={profileImage || "/public/images/student.jpg"} />
+                  <img
+                    src={user?.profileImage || "/public/images/student.jpg"}
+                  />
                 </div>
               </div>
               <div className="">
-                <h2 className="text-xl font-semibold mt-[2%]">{name}</h2>
+                <h2 className="text-xl font-semibold mt-[2%]">{user?.name}</h2>
                 <div className="">
                   <div className="flex gap-2 justify-center text-muted ">
                     <small className="font-bold text-muted">Student ID </small>
-                    <small className="">{studentId}</small>
+                    <small className="">{user?.studentId}</small>
                   </div>
                   <div className="flex gap-1 justify-center text-muted">
                     <MdLocationPin></MdLocationPin>
@@ -44,19 +45,19 @@ const PatientProfile = () => {
                     <ul>
                       <li className="flex gap-2 justify-center">
                         <p className="font-semibold">Email</p>
-                        <p className="text-right">{email}</p>
+                        <p className="text-right">{user?.email}</p>
                       </li>
                       <li className="flex gap-2 justify-center">
                         <p className="font-semibold">Department</p>
-                        <p className="text-right">{department}</p>
+                        <p className="text-right">{user?.department}</p>
                       </li>
                       <li className="flex gap-2">
                         <p className="font-semibold">Batch</p>
-                        <p className="text-right">{batch}</p>
+                        <p className="text-right">{user?.batch}</p>
                       </li>
                       <li className="flex gap-2">
                         <p className="font-semibold">Session</p>
-                        <p className="text-right">{session}</p>
+                        <p className="text-right">{user?.session}</p>
                       </li>
                     </ul>
                   </div>

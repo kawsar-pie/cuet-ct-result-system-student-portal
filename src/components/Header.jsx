@@ -46,7 +46,9 @@ const Header = () => {
                     className="avatar btn-success rounded-full btn btn-circle"
                   >
                     <div className="w-10 rounded-full">
-                      <img src="public\images\Kawsar(1).jpg" />
+                      <img
+                        src={user?.profileImage || "publicimagesstudent.jpg"}
+                      />
                     </div>
                   </label>
                   <ul

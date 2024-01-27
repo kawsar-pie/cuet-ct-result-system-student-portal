@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { postData } from "../../Axios/postData";
 import UserContext from "../../Contexts/UserContext";
@@ -7,7 +7,7 @@ import CustomField from "../../components/Formik/CustomField";
 import CustomForm from "../../components/Formik/CustomForm";
 
 const Login = () => {
-  const { setUser } = useContext(UserContext);
+  const { setUser, user } = useContext(UserContext);
   const [status, setStatus] = useState(null);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -32,6 +32,9 @@ const Login = () => {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    user && navigate("/user-profile");
+  }, []);
   return (
     // <Carousel></Carousel>
     <div className="">
