@@ -1,6 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchData } from "../../Axios/fecthData";
 
@@ -49,7 +49,7 @@ const EnrolledSemesters = () => {
                   <div className="card-actions justify-center">
                     {/* <button to="/courses" className="btn glass bg-success text-white">See Courses</button> */}
                     <Link
-                      to="/courses"
+                      to={`/courses/${semseter.semesterId}`}
                       className="btn glass bg-success text-white"
                       style={{ textDecoration: "none", color: "white" }}
                     >

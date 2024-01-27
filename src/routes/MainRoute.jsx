@@ -27,7 +27,7 @@ const mainRouter = [
         element: <EnrolledSemesters></EnrolledSemesters>,
       },
       {
-        path: "/courses",
+        path: "/courses/:semesterId",
         element: <Courses></Courses>,
       },
     ],
