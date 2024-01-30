@@ -14,21 +14,21 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const initialValues = {
-    studentId: "1804011",
+    studentId: "1804016",
     password: "123456",
   };
   const handleSubmit = async (values) => {
     setStatus(null);
     setMessage("");
     setLoading(true);
-    const result = await postData(`/auth/student/login`, values);
-    if (result.data) {
-      setUser(result.data);
-      setAuthHeader(result.data.token);
+    const response = await postData(`/auth/student/login`, values);
+    if (response.data) {
+      setUser(response.data);
+      setAuthHeader(response.data.token);
       navigate("/user-profile");
       setLoading(false);
     } else {
-      const message = result.message;
+      const message = response.message;
       setStatus(false);
       setMessage(message);
       setLoading(false);
