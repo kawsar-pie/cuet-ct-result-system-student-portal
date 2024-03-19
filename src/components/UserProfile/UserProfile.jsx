@@ -33,10 +33,7 @@ const UserProfile = () => {
                     <small className="font-bold text-muted">Student ID </small>
                     <small className="">{user?.studentId}</small>
                   </div>
-                  <div className="flex gap-1 justify-center text-muted">
-                    <MdLocationPin></MdLocationPin>
-                    <small>Chittagong, Bangladesh</small>
-                  </div>
+                  
                 </div>
               </div>
               <div className="flex mt-[1%] w-full  lg:flex-col">
