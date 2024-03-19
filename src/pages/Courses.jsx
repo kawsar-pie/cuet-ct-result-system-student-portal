@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchData } from "../Axios/fecthData";
+import Attendance from "../components/Attendance";
 import CtMarks from "../components/CtMarks";
 
 const Courses = () => {
+  const initialAttendance = {
+    totalAttendances: 0,
+    totalClasses: 0,
+    attendanceRatio: 0,
+  };
   const { semesterId } = useParams();
   const [courses, setCourses] = useState([]);
   const [classTests, setClassTests] = useState([]);
+  const [attendance, setAttendance] = useState(initialAttendance);
   const [loading, setLoading] = useState(false);
+  const [attendanceLoading, setAttendanceLoading] = useState(false);
   const [total, setTotal] = useState(0);
   useEffect(() => {
     const fetchCourse = async () => {
@@ -18,7 +26,7 @@ const Courses = () => {
     };
     fetchCourse();
   }, [semesterId]);
-  const showResult = async (courseCode) => {
+  const showCtResult = async (courseCode) => {
     setClassTests([]);
     setTotal(0);
     setLoading(true);
@@ -30,6 +38,20 @@ const Courses = () => {
       setLoading(false);
     } else {
       setLoading(false);
+    }
+  };
+  const showAttendance = async (courseCode) => {
+    setAttendance(initialAttendance);
+    setAttendanceLoading(true);
+    const result = await fetchData(
+      `/attendances/calculate-attendance/${semesterId}/${courseCode}`
+    );
+    // alert(JSON.stringify(result));
+    if (result.success) {
+      setAttendanceLoading(false);
+      setAttendance(result.data);
+    } else {
+      setAttendanceLoading(false);
     }
   };
   return (
@@ -71,15 +93,24 @@ const Courses = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="card-actions justify-center">
+                  <div className="card-actions justify-center my-4">
                     <button
                       className="btn glass bg-success text-white"
                       onClick={() => {
-                        showResult(course.courseCode);
+                        showCtResult(course.courseCode);
                         document.getElementById("my_modal_5").showModal();
                       }}
                     >
                       Marks
+                    </button>
+                    <button
+                      className="btn glass bg-success text-white"
+                      onClick={() => {
+                        showAttendance(course.courseCode);
+                        document.getElementById("my_modal_6").showModal();
+                      }}
+                    >
+                      Attendance
                     </button>
                   </div>
                 </div>
@@ -121,6 +152,24 @@ const Courses = () => {
             total={total}
             isLoading={loading}
           ></CtMarks>
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn btn-success glass text-white">
+                Close
+              </button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+      <dialog id="my_modal_6" className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box bg-transparent glass text-white w-11/12 max-w-5xl">
+          <h3 className="font-bold text-lg text-center">Attendance</h3>
+          <Attendance
+            totalAttendance={attendance?.totalAttendances}
+            totalClass={attendance?.totalClasses}
+            attendanceRatio={attendance.attendanceRatio}
+            isLoading={attendanceLoading}
+          />
           <div className="modal-action">
             <form method="dialog">
               <button className="btn btn-success glass text-white">
